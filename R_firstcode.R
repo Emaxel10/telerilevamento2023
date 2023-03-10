@@ -4,3 +4,22 @@
 install.packages("raster")
 
 library(raster)
+
+# Import data, setting the working directory
+setwd("C:/lab/") #windows
+
+l2011 <- brick("p224r63_2011_masked.grd")
+
+# plotting the data
+plot(l2011)
+
+cl <- colorRampPalette(c("red", "orange", "yellow")) (100) # 100 sono le sfumature
+plot(l2011, col=cl)
+
+# plotting one element
+plot(l2011[[4]], col=cl)
+
+plot(l2011$B4_sre, col=cl)
+
+nir <- l2011[[4]] # or nir <- l2011$B4_sre
+plot(nir, col=cl)
