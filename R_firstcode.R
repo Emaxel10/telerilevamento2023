@@ -23,3 +23,32 @@ plot(l2011$B4_sre, col=cl)
 
 nir <- l2011[[4]] # or nir <- l2011$B4_sre
 plot(nir, col=cl)
+
+# Excersise: change the colour gamut for all the images
+cl2 <- colorRampPalette(c("aquamarine", "blue", "darkorchid4")) (100)
+plot(l2011, col=cl2)
+
+# dev.off() # it closes graphs
+
+# Export graphs in R
+pdf("myfirstgraphs.pdf")
+plot(l2011, col=cl2)
+dev.off()
+
+# plotting several bands in a multiframe
+par(mfrow = c(2,1))
+
+# plotting the first 4 layers / bands
+par(mfrow = c(2,2))
+# blue
+clb <- colorRampPalette(c("blue4", "blue", "lightblue")) (100)
+plot(l2011[[1]], col=clb)
+# green
+clg <- colorRampPalette(c("chartreuse4", "chartreuse2", "chartreuse")) (100)
+plot(l2011[[2]], col=clg)
+# red
+clr <- colorRampPalette(c("red", "darkred", "brown4")) (100)
+plot(l2011[[3]], col=clr)
+# nir
+clnir <- colorRampPalette(c("darkgoldenrod", "orange", "blueviolet")) (100)
+plot(l2011[[4]], col=clnir)
