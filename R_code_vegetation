@@ -1,0 +1,9 @@
+# Calculating spectral indices
+
+library(raster)
+setwd("C:/lab/") 
+
+# Excersise: import defor1_.png
+l1992 <- brick("defor1_.png")
+l1992
+plot(l1992)
