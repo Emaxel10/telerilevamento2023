@@ -17,3 +17,23 @@ plot(lst_2015)
 # list f files:
 rlist <- list.files(pattern="lst")
 rlist
+
+# lapply function
+import <- lapply(rlist,raster)
+import
+
+# stack function
+TGr <- stack(import)
+TGr
+plot(TGr)
+
+plotRGB(TGr, 1, 2, 3, stretch="Lin")
+
+# difference:
+dift = TGr[[2]] - TGr[[1]]
+plot(dift)
+
+# levelplot(TGr)
+cl <- colorRampPalette(c("blue","lightblue","pink","red"))(100)
+plot(TGr, col=cl)
+
