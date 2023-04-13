@@ -37,3 +37,38 @@ plot(dift)
 cl <- colorRampPalette(c("blue","lightblue","pink","red"))(100)
 plot(TGr, col=cl)
 
+#--------------------------
+# Excersise 2: European NO2
+setwd("C:/Lab/EN")
+# Importing a file
+en01 <- raster("EN_0001.png")
+cl <- colorRampPalette(c('red','orange','yellow'))(100)
+plot(en01, col=cl)
+# Exercise: import the whole as in the Greenland example
+# by the following steps: list.files, lapply, stack
+rlist <- list.files(pattern="EN")
+# lapply(X,FUN)
+rimp <- lapply(rlist, raster)
+# stack
+en <- stack(rimp)
+# plot everything
+plot(en, col=cl)
+# check 1
+par(mfrow = c(1,2))
+plot(en01, col=cl)
+plot(en[[1]], col=cl)
+# check 2
+difcheck <- en01 - en[[1]]
+difcheck
+plot(difcheck)
+# Exercise: plot EN01 besides EN13
+par(mfrow=c(1,2))
+plot(en[[1]], col=cl)
+plot(en[[13]], col=cl)
+# let's make the difference:
+difen <-  en[[1]] - en[[13]]
+cldif <- colorRampPalette(c('blue','white','red'))(100)
+plot(difen, col=cldif)
+# plotRGB of three files together
+plotRGB(en, r=1, g=7, b=13, stretch="Lin")
+plotRGB(en, r=1, g=7, b=13, stretch="Hist")
