@@ -63,7 +63,13 @@ gcclass <- setValues(gc[[1]], kcluster$cluster) # assign new values to a raster 
 
 cl <- colorRampPalette(c('yellow','black','red'))(100)
 plot(gcclass, col=cl)
+# Class 1: vulcanic rocks
+# Class 2: sandstone
+# Class 3: conglomerates
 
 frequencies <- freq(gcclass)
-tot = 58076148
-percentages = frequencies * 100 /  tot
+frequencies
+total <- ncell(gcclass)
+total
+percentages = frequencies * 100 /  total
+percentages
