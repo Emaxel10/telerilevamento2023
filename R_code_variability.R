@@ -41,6 +41,7 @@ ggplot() +
 geom_raster(sd3d, mapping =aes(x=x, y=y, fill=layer)) +
 scale_fill_viridis(option = "inferno") +
 ggtitle("Standard deviation by viridis package")
+
 # patchwork
 p1 <- ggplot() +
 geom_raster(sd3d, mapping =aes(x=x, y=y, fill=layer)) +
