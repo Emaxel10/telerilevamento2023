@@ -54,3 +54,12 @@ scale_fill_viridis(option = "inferno") +
 ggtitle("Standard deviation via the inferno colour scale")
 
 p1 + p2
+
+# Excersise: plot the original image (NIR) and it's standard deviation
+nird <- as.data.frame(nir, xy=T)
+p3 <- ggplot() +
+  geom_raster(nird, mapping =aes(x=x, y=y, fill=sentinel_1)) +
+  scale_fill_viridis(option = "cividis") +
+  ggtitle("NIR via the cividis colour scale")
+p3
+p3 + p1
