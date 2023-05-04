@@ -46,11 +46,11 @@ ggtitle("Standard deviation by viridis package")
 p1 <- ggplot() +
 geom_raster(sd3d, mapping =aes(x=x, y=y, fill=layer)) +
 scale_fill_viridis() +
-ggtitle("Standard deviation by viridis package")
+ggtitle("Standard deviation via the viridis colour scale")
 
 p2 <- ggplot() +
 geom_raster(sd3d, mapping =aes(x=x, y=y, fill=layer)) +
 scale_fill_viridis(option = "inferno") +
-ggtitle("Standard deviation by viridis package")
+ggtitle("Standard deviation via the inferno colour scale")
 
 p1 + p2
