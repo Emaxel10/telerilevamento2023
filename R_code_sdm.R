@@ -56,4 +56,5 @@ plot(p1, col=cl)
 points(species[species$Occurrence == 1, ], pch=16)
 # aggiungiamo allo stack
 s1 <- stack(preds,p1)
+names(s1)[5] <- "model"
 plot(s1, col=cl)
