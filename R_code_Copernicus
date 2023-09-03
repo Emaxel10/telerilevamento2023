@@ -1,4 +1,4 @@
-# R ocde for downloading and visualizing Copernicus data
+# R code for downloading and visualizing Copernicus data
 
 # install.packages("ncdf4")
 library(ncdf4)
