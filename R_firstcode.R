@@ -30,7 +30,7 @@ pdf("myfirstgraphs.pdf")
 plot(l2011, col=cl2)
 dev.off() # dev.off() # It closes graphs
 
-# Plotting several bands in a multiframe
+# Plotting several bands in a multiframe with the "par" function
 par(mfrow = c(2,1))
 
 # Plotting the first 4 layers / bands
@@ -60,11 +60,15 @@ plotRGB(l2011, r=3, g=2, b=4, stretch="Lin")
 par(mfrow = c(2,1))
 plotRGB(l2011, 4, 3, 2, stretch="Hist")
 
-# Excersise: import the 1988 image
+# We use stretch to widen the colors. The linear stretch doesn't change the colors, 
+# the one for histograms highlights the difference between minimum and maximum
+
+# Excersise: import the 1988 image and replicate the process
 l1988 <- brick("p224r63_1988_masked.grd")
 l1988
 plot(l1988)
 
+# Plot RGB
 plotRGB(l1988, r=3, g=2, b=1, stretch="Lin")
 plotRGB(l1988, r=4, g=3, b=2, stretch="Lin")
 
@@ -73,8 +77,8 @@ par(mfrow = c(2,1))
 plotRGB(l1988, 4, 3, 2, stretch="Lin")
 plotRGB(l2011, 4, 3, 2, stretch="Lin")
 
-# Esercizio, fare un multiframe 2 righe e 2 colonne, 1988 lin, 2011 lin, 1988 hist, 2011 hist
-# RGB con infrarosso in red
+# Exercise: making a multiframe with 2 rows and 2 columns, 1988 (stretch) lin, 2011 lin, 1988 hist, 2011 hist
+# RGB with infrared in red
 par(mfrow = c(2,2))
 plotRGB(l1988, r=4, g=3, b=2, stretch="Lin")
 plotRGB(l2011, r=4, g=3, b=2, stretch="Lin")
