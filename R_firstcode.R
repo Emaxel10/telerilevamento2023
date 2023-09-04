@@ -1,55 +1,50 @@
 # My first code in Git Hub
 # Let's install the raster package
-
 install.packages("raster")
-
 library(raster)
 
 # Import data, setting the working directory
 setwd("C:/lab/") # Windows
-
 l2011 <- brick("p224r63_2011_masked.grd")
+# "brick" function create a RasterBrick that is a multi-layer raster object, used to store all the data together 
 
-# plotting the data
+# Plotting the data
 plot(l2011)
 
-cl <- colorRampPalette(c("red", "orange", "yellow")) (100) # 100 sono le sfumature
+# Create a color Ramp Palette to change the color of graphs
+cl <- colorRampPalette(c("red", "orange", "yellow")) (100) # 100 are the shades
 plot(l2011, col=cl)
 
-# plotting one element
+# Plotting one element. We can use [[]] or $ to choose the element
 plot(l2011[[4]], col=cl)
-
 plot(l2011$B4_sre, col=cl)
-
-nir <- l2011[[4]] # or nir <- l2011$B4_sre
+nir <- l2011[[4]] # Or nir <- l2011$B4_sre
 plot(nir, col=cl)
 
-# Excersise: change the colour gamut for all the images
+# Excersise: change the color gamut for all the images
 cl2 <- colorRampPalette(c("aquamarine", "blue", "darkorchid4")) (100)
 plot(l2011, col=cl2)
 
-# dev.off() # it closes graphs
-
-# Export graphs in R
+# Export graphs in R (as pdf)
 pdf("myfirstgraphs.pdf")
 plot(l2011, col=cl2)
-dev.off()
+dev.off() # dev.off() # It closes graphs
 
-# plotting several bands in a multiframe
+# Plotting several bands in a multiframe
 par(mfrow = c(2,1))
 
-# plotting the first 4 layers / bands
+# Plotting the first 4 layers / bands
 par(mfrow = c(2,2))
-# blue
+# Blue
 clb <- colorRampPalette(c("blue4", "blue", "lightblue")) (100)
 plot(l2011[[1]], col=clb)
-# green
+# Green
 clg <- colorRampPalette(c("chartreuse4", "chartreuse2", "chartreuse")) (100)
 plot(l2011[[2]], col=clg)
-# red
+# Red
 clr <- colorRampPalette(c("red", "darkred", "brown4")) (100)
 plot(l2011[[3]], col=clr)
-# nir
+# Nir
 clnir <- colorRampPalette(c("darkgoldenrod", "orange", "blueviolet")) (100)
 plot(l2011[[4]], col=clnir)
 
