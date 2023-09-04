@@ -6,7 +6,7 @@ install.packages("raster")
 library(raster)
 
 # Import data, setting the working directory
-setwd("C:/lab/") #windows
+setwd("C:/lab/") # Windows
 
 l2011 <- brick("p224r63_2011_masked.grd")
 
