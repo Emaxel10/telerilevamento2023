@@ -1,3 +1,5 @@
+# Time series analysis
+
 library(raster)
 
 setwd("C:/lab/greenland") # Windows
@@ -14,22 +16,22 @@ plot(lst_2010)
 lst_2015 <- raster("lst_2015.tif")
 plot(lst_2015)
 
-# list f files:
+# We can use list.files() to select files by pattern
 rlist <- list.files(pattern="lst")
 rlist
 
-# lapply function
+# "lapply" function helps us in applying functions on list objects and returns a list object of the same length
 import <- lapply(rlist,raster)
 import
 
-# stack function
+# "stack" function is used to transform data available in the form of separate columns within a data frame or a list into a single column
 TGr <- stack(import)
 TGr
 plot(TGr)
 
 plotRGB(TGr, 1, 2, 3, stretch="Lin")
 
-# difference:
+# Difference:
 dift = TGr[[2]] - TGr[[1]]
 plot(dift)
 
@@ -38,37 +40,50 @@ cl <- colorRampPalette(c("blue","lightblue","pink","red"))(100)
 plot(TGr, col=cl)
 
 #--------------------------
+
 # Excersise 2: European NO2
+
 setwd("C:/Lab/EN")
-# Importing a file
+
+# Importing and plotting a file
 en01 <- raster("EN_0001.png")
 cl <- colorRampPalette(c('red','orange','yellow'))(100)
 plot(en01, col=cl)
+
 # Exercise: import the whole as in the Greenland example
 # by the following steps: list.files, lapply, stack
+
 rlist <- list.files(pattern="EN")
+
 # lapply(X,FUN)
 rimp <- lapply(rlist, raster)
-# stack
+
+# "stack"
 en <- stack(rimp)
-# plot everything
+
+# Plot everything
 plot(en, col=cl)
-# check 1
+
+# Check 1
 par(mfrow = c(1,2))
 plot(en01, col=cl)
 plot(en[[1]], col=cl)
-# check 2
+
+# Check 2
 difcheck <- en01 - en[[1]]
 difcheck
 plot(difcheck)
+
 # Exercise: plot EN01 besides EN13
 par(mfrow=c(1,2))
 plot(en[[1]], col=cl)
 plot(en[[13]], col=cl)
-# let's make the difference:
+
+# Let's make the difference:
 difen <-  en[[1]] - en[[13]]
 cldif <- colorRampPalette(c('blue','white','red'))(100)
 plot(difen, col=cldif)
-# plotRGB of three files together
+
+# "plotRGB" of three files together
 plotRGB(en, r=1, g=7, b=13, stretch="Lin")
 plotRGB(en, r=1, g=7, b=13, stretch="Hist")
