@@ -24,11 +24,11 @@ summary(pca)
 # See the variability of the three components
 plot(pca)
 
-# Now we must predict the value of the other pixels
+# Now we predict the value of the other pixels
 pci <- predict(sen2, pca, index=c(1:3)) # "index" represents how many components we want in the output
 plot(pci)
 
-# ggplot2
+# "ggplot2"
 pcid1 <- as.data.frame(pci[[1]], xy=T) # ggplot wants tabular data and not raster
 
 # Let's see how the first component for the fill is called
