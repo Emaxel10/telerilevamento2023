@@ -17,10 +17,9 @@ plotRGB(so, 1, 2, 3, stretch="hist")
 # 1) Get all the single values
 singlenr <- getValues(so)
 singlenr
-#
 # set.seed(99)
 
-# 2) Classify
+# 2) Classify the single values
 kcluster <- kmeans(singlenr, centers = 3)
 kcluster
 
@@ -32,16 +31,17 @@ plot(soclass, col=cl)
 
 # set.seed can be used for repeating the experiment in the same manner for N times
 
-#####
+#-------------
 
 # Grand Canyon
 
+# Import image
 gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg")
 gc
 
-# rosso = 1
-# verde = 2
-# blu = 3
+# Red = 1
+# Green = 2
+# Blue = 3
 
 plotRGB(gc, r=1, g=2, b=3, stretch="lin")
 
@@ -67,6 +67,7 @@ plot(gcclass, col=cl)
 # Class 2: sandstone
 # Class 3: conglomerates
 
+# Frequencies and percentages
 frequencies <- freq(gcclass)
 frequencies
 total <- ncell(gcclass)
