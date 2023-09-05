@@ -19,6 +19,7 @@ plotRGB(l1992, 3, 2, 1, stretch="Lin")
 dvi1992 = l1992[[1]] - l1992[[2]]
 cl <- colorRampPalette(c("darkblue", "yellow", "red", "black"))(100)
 plot(dvi1992, col=cl)
+# DVI is a Difference Vegetation Index. This index distinguishes between soil and vegetation
 
 # Importing defor2_.png
 l2006 <- brick("defor2_.png")
