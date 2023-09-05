@@ -1,10 +1,14 @@
+# Land cover
+
+# Set up libraries and wd
 library(raster)
 # install.packages("ggplot2")
 library(ggplot2)
 # install.packages("patchwork")
 library(patchwork) # for multiframe ggplot plotting
-setwd("C:/lab/) # Windows
+setwd("C:/lab/)
 
+# Importing images and plotting them via RGB
 defor1 <- brick("defor1_.png")
 plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 
@@ -19,7 +23,7 @@ plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 singlenr1 <- getValues(defor1)
 singlenr1
 
-# 2. Classify
+# 2. Classify the single values 
 kcluster1 <- kmeans(singlenr1, centers = 2)
 kcluster1
 
@@ -42,7 +46,7 @@ plot(defor2class)
 # Class 1: forest
 # Class 2: bare soil
 
-# Frequencies
+# Frequencies and percentages
 frequencies1 <- freq(defor1class)
 tot1 <- ncell(defor1class)
 percentages1 <- frequencies1 * 100 /  tot1
@@ -63,7 +67,7 @@ percent_2006 <- c(52.0, 47.0)
 percentages <- data.frame(cover, percent_1992, percent_2006)
 percentages
 
-# let's plot them!
+# Let's plot them!
 ggplot(percentages, aes(x=cover, y=percent_1992, color=cover)) + geom_bar(stat="identity", fill="white")
 ggplot(percentages, aes(x=cover, y=percent_2006, color=cover)) + geom_bar(stat="identity", fill="white")
 
