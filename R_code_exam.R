@@ -88,6 +88,12 @@ total2020
 percentages2020 = frequencies2020 * 100 /  total2020
 percentages2020
 
+#             value    count
+# [1,] 6.918975e-06 18.65193
+# [2,] 1.383795e-05 26.82186
+# [3,] 2.075692e-05 42.83789
+# [4,] 2.767590e-05 11.68833
+
 # 2021
 singler21 <- getValues(CT2021)
 singler21
@@ -101,6 +107,12 @@ total2021 <- ncell(class2021)
 total2021
 percentages2021 = frequencies2021 * 100 /  total2021
 percentages2021
+
+#             value     count
+# [1,] 6.918975e-06 42.919861
+# [2,] 1.383795e-05  9.715133
+# [3,] 2.075692e-05 20.162211
+# [4,] 2.767590e-05 27.202794
 
 # 2023
 singler23 <- getValues(CT2023)
@@ -116,3 +128,8 @@ total2023
 percentages2023 = frequencies2023 * 100 /  total2023
 percentages2023
 
+#             value    count
+# [1,] 6.918975e-06 18.52587
+# [2,] 1.383795e-05 11.32997
+# [3,] 2.075692e-05 42.84539
+# [4,] 2.767590e-05 27.29877
