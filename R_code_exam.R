@@ -8,12 +8,12 @@ setwd("C:/Progetto telerilevamento") # Windows
 # Installiamo e richiamiamo i pacchetti necessari 
 install.packages("raster")
 install.packages("ggplot2")
-install.packages("viridis")
 install.packages("patchwork")
 library(raster)
 library(ggplot2)
-library(viridis)
 library(patchwork)
+
+# ----- Importazione e visualizzazione -----
 
 # Importiamo le immagini
 # 2020
@@ -41,6 +41,8 @@ plotRGB(CT2020, 3, 2, 1, stretch="Lin")
 plotRGB(CT2021, 3, 2, 1, stretch="Lin")
 plotRGB(CT2023, 3, 2, 1, stretch="Lin")
 dev.off()
+
+# ----- Indici spettrali -----
 
 # È arrivato il momento di calcolare gli indici spettrali 
 
@@ -72,6 +74,8 @@ par(mfrow = c(1,3))
 plot(difndvi1, col=cld)
 plot(difndvi2, col=cld)
 dev.off()
+
+# ----- Classificazione -----
 
 # Classificazione e calcolo delle percentuali
 # 2020
@@ -131,3 +135,36 @@ percentages2023
 # [1,] 6.918975e-06 42.90857 # Acqua
 # [2,] 1.383795e-05 39.43373 # Suolo bruciato
 # [3,] 2.075692e-05 17.65770 # Vegetazione
+
+# Mettiamo insieme in un grafico tutte le percentuali per poterle comparare
+cover <- c("Acqua", "Suolo bruciato", "Vegetazione")
+percentuale_20 <- c(42.94, 36.07, 20.99)
+percentuale_21 <- c(42.99, 40.69, 16.32)
+percentuale_23 <- c(42.91, 39.43, 17.66)
+percentages <- data.frame(cover, percentage_20, percentage_21, percentage_23)
+
+# 2020
+p1 <- ggplot(percentages, aes(x = cover, y = percentuale_20, color = cover)) +
+  geom_bar(stat = "identity", fill = "white") +
+  ggtitle("2020") +
+  ylim(c(0, 100))
+
+# 2021
+p2 <- ggplot(percentages, aes(x = cover, y = percentuale_21, color = cover)) +
+  geom_bar(stat = "identity", fill = "white") +
+  ggtitle("2021") +
+  ylim(c(0, 100))
+
+# 2023
+p3 <- ggplot(percentages, aes(x = cover, y = percentuale_23, color = cover)) +
+  geom_bar(stat = "identity", fill = "white") +
+  ggtitle("2023") +
+  ylim(c(0, 100))
+
+p1 + p2 + p3
+
+
+
+
+
+
