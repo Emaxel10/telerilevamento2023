@@ -66,14 +66,10 @@ plot(ndvi2021, col=cl)
 plot(ndvi2023, col=cl)
 dev.off()
 
-# Calcolo le differenze di NDVI prima tra gli anni 2020 e 2021, poi tra il 2021 e il 2023, e li plotto
+# Calcolo le differenze di NDVI tra il 2020 e il 2023
 cld <- colorRampPalette(c("blue", "white", "red"))(100)
-difndvi1 = ndvi2020 - ndvi2021
-difndvi2 = ndvi2020 - ndvi2023
-par(mfrow = c(1,3))
-plot(difndvi1, col=cld)
-plot(difndvi2, col=cld)
-dev.off()
+difndvi = ndvi2020 - ndvi2023
+plot(difndvi, col=cld)
 
 # ----- Classificazione -----
 
