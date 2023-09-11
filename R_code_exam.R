@@ -85,6 +85,7 @@ kcluster20 <- kmeans(singler20, centers = 3)
 kcluster20
 class2020 <- setValues(CT2020[[3]], kcluster20$cluster)
 plot(class2020)
+
 frequencies2020 <- freq(class2020)
 frequencies2020
 total2020 <- ncell(class2020)
@@ -104,6 +105,7 @@ kcluster21 <- kmeans(singler21, centers = 3)
 kcluster21
 class2021 <- setValues(CT2021[[3]], kcluster21$cluster)
 plot(class2021)
+
 frequencies2021 <- freq(class2021)
 frequencies2021
 total2021 <- ncell(class2021)
@@ -124,6 +126,7 @@ kcluster23 <- kmeans(singler23, centers = 3)
 kcluster23
 class2023 <- setValues(CT2023[[3]], kcluster23$cluster)
 plot(class2023)
+
 frequencies2023 <- freq(class2023)
 frequencies2023
 total2023 <- ncell(class2023)
