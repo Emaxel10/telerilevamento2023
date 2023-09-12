@@ -1,0 +1,119 @@
+\documentclass{beamer}
+\usepackage{graphicx} % Required for inserting images
+
+\usetheme{AnnArbor}
+\usecolortheme{spruce}
+
+\title{Telerilevamento Geo-Ecologico}
+\author{Emanuele Mancini}
+\date{Settembre 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{frame}{Scopo dello studio}
+Analisi della variazione di copertura vegetale lungo la Costa dei Trabocchi in seguito agli incendi dell'estate del 2021
+\end{frame}
+
+\begin{frame}{Frame Title}
+\begin{itemize}
+    \item Acquisizione delle immagini satellitari \textbf{Sentinel 2}
+    \item \pause Calcolo degli indici spettrali
+    \item \pause Classificazione
+\end{itemize}    
+\end{frame}
+
+\section{Importazione dati}
+
+\begin{frame}{Importazione dati e visualizzazione}
+\begin{itemize}
+    \item Download immagini da Copernicus
+    \item \pause Importazione in R
+    \item \pause Ritaglio dell'area di analisi
+    \item \pause Visualizzazione
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Grafico}
+\centering
+\includegraphics[width=0.6 \textwidth]{2020.pdf}
+\end{frame}
+
+\begin{frame}{Grafico}
+\centering
+\includegraphics[width=0.6 \textwidth]{2021.pdf}
+\end{frame}
+
+\begin{frame}{Grafico}
+\centering
+\includegraphics[width=0.6 \textwidth]{2023.pdf}
+\end{frame}
+
+\section{Indici spettrali}
+
+\begin{frame}{Calcolo indici spettrali e visualizzazione}
+\begin{itemize}
+    \item Calcolo degli indici spettrali (DVI e NDVI)
+    \item \pause Calcolo differenza di NDVI tra i vari anni
+    \item \pause Visualizzazione
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Formule}
+    \begin{itemize}
+    \item  \textbf{DVI}(\textit{Difference Vegetation Index}):
+    \begin{equation}
+        NDVI = NIR - rosso
+    \end{equation}
+    \item \textbf{NDVI}(\textit{Normalized Difference Vegetation Index}):
+    \begin{equation}
+        NDVI = \frac{NIR - rosso}{NIR + rosso} = \frac{DVI}{NIR + rosso}
+    \end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{NDVI}
+\includegraphics[width=0.4 \textwidth]{NDVI2020.pdf}
+\includegraphics[width=0.4 \textwidth]{NDVI2021.pdf}
+\includegraphics[width=0.4 \textwidth]{NDVI2023.pdf}
+\end{frame}
+
+\begin{frame}{NDVI}
+\begin{figure}
+    \includegraphics[width=0.6 \textwidth]{DIF NDVI 20-23.pdf}
+    \caption{DIF NDVI}
+    \end{figure}
+\end{frame}
+
+\section{Classificazione}
+
+\begin{frame}{Classificazione}
+\begin{itemize}
+    \item Classificazione delle immagini
+    \item \pause Calcolo delle frequenze e delle percentuali
+    \item \pause Creazione di un dataframe con i risultati ottenuti
+    \item \pause Visualizzazione grafica dei risultati
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualizzazione}
+    \includegraphics[width=\textwidth]{Percentuali.pdf}
+\end{frame}
+
+\section{Conclusioni}
+
+\begin{frame}{Conclusioni}
+Rispetto al 2020 la percentuale di vegetazione è diminuita a seguito degli incendi, fortunatamente però, come si può notare nel grafico precedente, nel 2023 è riaumentata
+\end{frame}
+
+\begin{frame}{}
+    \centering \textbf{Grazie per l'attenzione!}
+\end{frame}
+
+\end{document}
+
