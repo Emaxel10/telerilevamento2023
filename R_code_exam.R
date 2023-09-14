@@ -44,6 +44,8 @@ dev.off()
 
 # Dopo aver visualizzato le immagini in colori reali usiamo la banda del NIR al posto della rossa per evidenziare la vegetazinoe
 plotRGB(CT2020, 4, 3, 2, stretch="Lin")
+plotRGB(CT2021, 4, 3, 2, stretch="Lin")
+plotRGB(CT2023, 4, 3, 2, stretch="Lin")
 
 # ----- Indici spettrali -----
 
