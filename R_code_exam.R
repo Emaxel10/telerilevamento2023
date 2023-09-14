@@ -139,9 +139,9 @@ percentages2023
 # [3,] 2.075692e-05 39.43373 # Vegetazione
 
 # Mettiamo insieme in un grafico tutte le percentuali per poterle comparare
-cover <- c("Acqua", "Suolo bruciato", "Vegetazione")
-percentuale_20 <- c(42.94, 36.07, 20.99)
-percentuale_21 <- c(42.99, 40.69, 16.32)
+cover <- c("Acqua", "Vegetazione", "Suolo bruciato")
+percentuale_20 <- c(42.99, 40.69, 16.32)
+percentuale_21 <- c(42.94, 36.07, 20.99)
 percentuale_23 <- c(42.91, 39.43, 17.66)
 percentages <- data.frame(cover, percentuale_20, percentuale_21, percentuale_23)
 
