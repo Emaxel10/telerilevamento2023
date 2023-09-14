@@ -42,6 +42,9 @@ plotRGB(CT2021, 3, 2, 1, stretch="Lin")
 plotRGB(CT2023, 3, 2, 1, stretch="Lin")
 dev.off()
 
+# Dopo aver visualizzato le immagini in colori reali usiamo la banda del NIR al posto della rossa per evidenziare la vegetazinoe
+plotRGB(CT2020, 4, 3, 2, stretch="Lin")
+
 # ----- Indici spettrali -----
 
 # È arrivato il momento di calcolare gli indici spettrali 
@@ -90,9 +93,9 @@ percentages2020 = frequencies2020 * 100 /  total2020
 percentages2020
 
 #             value    count
-# [1,] 2.075692e-05 42.94496 # Acqua
-# [2,] 6.918975e-06 36.06682 # Suolo bruciato
-# [3,] 1.383795e-05 20.98822 # Vegetazione
+# [1,] 2.075692e-05 42.99239 # Acqua 
+# [2,] 6.918975e-06 16.31916 # Suolo bruciato 
+# [3,] 1.383795e-05 40.68845 # Vegetazione 
 
 # 2021
 singler21 <- getValues(CT2021)
@@ -110,9 +113,9 @@ percentages2021 = frequencies2021 * 100 /  total2021
 percentages2021
 
 #             value    count
-# [1,] 6.918975e-06 42.99239 # Acqua
-# [2,] 1.383795e-05 40.68845 # Suolo bruciato
-# [3,] 2.075692e-05 16.31916 # Vegetazione
+# [1,] 6.918975e-06 42.94496 # Acqua
+# [2,] 1.383795e-05 20.98822 # Suolo bruciato
+# [3,] 2.075692e-05 36.06682 # Vegetazione
 
 
 # 2023
@@ -132,15 +135,15 @@ percentages2023
 
 #             value    count
 # [1,] 6.918975e-06 42.90857 # Acqua
-# [2,] 1.383795e-05 39.43373 # Suolo bruciato
-# [3,] 2.075692e-05 17.65770 # Vegetazione
+# [2,] 1.383795e-05 17.65770 # Suolo bruciato 
+# [3,] 2.075692e-05 39.43373 # Vegetazione
 
 # Mettiamo insieme in un grafico tutte le percentuali per poterle comparare
 cover <- c("Acqua", "Suolo bruciato", "Vegetazione")
 percentuale_20 <- c(42.94, 36.07, 20.99)
 percentuale_21 <- c(42.99, 40.69, 16.32)
 percentuale_23 <- c(42.91, 39.43, 17.66)
-percentages <- data.frame(cover, percentage_20, percentage_21, percentage_23)
+percentages <- data.frame(cover, percentuale_20, percentuale_21, percentuale_23)
 
 # 2020
 p1 <- ggplot(percentages, aes(x = cover, y = percentuale_20, color = cover)) +
